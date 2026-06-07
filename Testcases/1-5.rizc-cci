@@ -1,0 +1,221 @@
+// x1 <- A
+ld  x1 ip
+
+// x2 <- B
+li  x3 8
+add ip ip x3
+ld  x2 ip
+
+// x1 <- x1 + x2
+add x1 x1 x2
+
+// op <- sp
+add op x0 sp
+
+// i <- 0
+li  x2 0
+
+
+
+// if (n == 0)
+beq x1 x0 IF1
+beq x0 x0 ENDIF1
+IF1:
+    // out[i] = '0'
+    add x7 op x2  // x7 <- out + i
+    li  x8 48     // x8 <- '0'
+    sb  x8 x7     // M[x7] <- x8
+
+    // i++
+    li  x9 1
+    add x2 x2 x9
+
+    // out[i] = '\0'
+    li  x8 1     // x8 <- 1
+    add x7 x7 x1 // x7 <- out + i
+    sb  x0 x7    // M[x7] <- '\0'
+
+    // terminate
+    beq x0 x0 JTERM1
+    
+ENDIF1:
+
+
+
+// Extract digits backwards
+
+// while (n != 0)
+WHILE1:
+    beq x1 x0 JENDWHILE1
+
+    // digit = n
+    add x3 x0 x1
+
+    // while (digit >= 10)
+    WHILE2:
+        beq x3 x0 ENDWHILE2
+        li  x7 1
+        beq x3 x7 ENDWHILE2
+        li  x7 2
+        beq x3 x7 ENDWHILE2
+        li  x7 3
+        beq x3 x7 ENDWHILE2
+        li  x7 4
+        beq x3 x7 ENDWHILE2
+        li  x7 5
+        beq x3 x7 ENDWHILE2
+        li  x7 6
+        beq x3 x7 ENDWHILE2
+        li  x7 7
+        beq x3 x7 ENDWHILE2
+        li  x7 8
+        beq x3 x7 ENDWHILE2
+        li  x7 9
+        beq x3 x7 ENDWHILE2
+
+        // digit -= 10
+        li  x7 -10
+        add x3 x3 x7
+        
+        beq x0 x0 WHILE2
+    ENDWHILE2:
+
+
+
+    beq x0 x0 JWHILE12END
+JWHILE12:
+    beq x0 x0 WHILE1
+JWHILE12END:
+
+    beq x0 x0 JTERM1END
+JTERM1:
+    beq x0 x0 JTERM2
+JTERM1END:
+
+    beq x0 x0 JENDWHILE1END
+JENDWHILE1:
+    beq x0 x0 JENDWHILE12
+JENDWHILE1END:
+
+
+
+    // out[i] = '0' + digit
+    add x7 op x2  // x7 <- out + i
+    li  x8 48     // x8 <- '0'
+    add x8 x8 x3  // x8 <- '0' + digit
+    sb  x8 x7     // M[x7] <- x8
+
+    // tmp = n
+    add x4 x0 x1
+
+    // n = 0
+    li  x1 0
+
+    // while (tmp >= 10)
+    WHILE3:
+        beq x4 x0 ENDWHILE3
+        li  x7 1
+        beq x4 x7 ENDWHILE3
+        li  x7 2
+        beq x4 x7 ENDWHILE3
+        li  x7 3
+        beq x4 x7 ENDWHILE3
+        li  x7 4
+        beq x4 x7 ENDWHILE3
+        li  x7 5
+        beq x4 x7 ENDWHILE3
+        li  x7 6
+        beq x4 x7 ENDWHILE3
+        li  x7 7
+        beq x4 x7 ENDWHILE3
+        li  x7 8
+        beq x4 x7 ENDWHILE3
+        li  x7 9
+        beq x4 x7 ENDWHILE3
+
+
+
+    beq x0 x0 JWHILE1END
+JWHILE1:
+    beq x0 x0 JWHILE12
+JWHILE1END:
+        
+    beq x0 x0 JTERM2END
+JTERM2:
+    beq x0 x0 TERM
+JTERM2END:
+
+    beq x0 x0 JENDWHILE12END
+JENDWHILE12:
+    beq x0 x0 ENDWHILE1
+JENDWHILE12END:
+
+
+
+        // tmp -= 10
+        li  x7 -10
+        add x4 x4 x7
+
+        // n += 1
+        li  x7 1
+        add x1 x1 x7
+
+        beq x0 x0 WHILE3
+    ENDWHILE3:
+
+    // i += 1
+    li  x7 1
+    add x2 x2 x7
+
+    beq x0 x0 JWHILE1
+ENDWHILE1:
+
+
+
+// Reverse the string
+
+// out[i] = '\0'
+add x7 op x2  // x7 <- out + i
+sb  x0 x7     // M[x7] <- x0
+
+// j = 0
+li  x5 0
+
+// k = i - 1
+li  x7 -1
+add x6 x2 x7
+
+// while (j != k && j != k+1)
+WHILE4:
+    beq x5 x6 ENDWHILE4
+    li  x7 1      // x7 <- 1
+    add x7 x6 x7  // x7 <- k + 1
+    beq x5 x7 ENDWHILE4
+    
+    // tmp = out[j]
+    add x7 op x5  // x7 <- out + j
+    lb  x4 x7     // x4 <- M[x7]
+
+    // out[j] = out[k]
+    add x8 op x6  // x8 <- out + k
+    lb  x9 x8     // x9 <- M[x8]
+    sb  x9 x7     // M[x7] <- x9
+
+    // out[k] = tmp
+    sb  x4 x8  // M[x8] <- tmp
+
+    // j += 1
+    li  x7 1
+    add x5 x5 x7
+
+    // k = 1
+    li  x7 -1
+    add x6 x6 x7
+    
+    beq x0 x0 WHILE4
+ENDWHILE4:
+
+
+
+
+TERM:

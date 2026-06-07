@@ -1,0 +1,13 @@
+    li  x1 1
+    li  x2 -4
+    li  x3 120
+    add x4 x3 x2
+    beq x0 x0 SKIP
+    add x4 x4 x3
+SKIP:
+    add sp sp x1
+    add op sp x0
+    sb  x4 op
+    add op op x1
+    sb  x0 op
+    add op sp x0

@@ -1,0 +1,11 @@
+0x1013 : li  x1  1
+0x2FC3 : li  x2  -4
+0x3783 : li  x3  120
+0x4320 : add x4  x3  x2
+0x0009 : beq x0  x0  4
+0xFF10 : add x15 x15 x1
+0xDF00 : add x13 x15 x0
+0x4D0E : sb  x4  x13
+0xDD10 : add x13 x13 x1
+0x0D0E : sb  x0  x13
+0xDF00 : add x13 x15 x0

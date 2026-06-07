@@ -1,0 +1,532 @@
+0x1013 : li  x1  1
+0xFF10 : add x15 x15 x1
+0x20F0 : add x2  x0  x15
+0x1073 : li  x1  7
+0xFF10 : add x15 x15 x1
+0x1013 : li  x1  1
+0xFF10 : add x15 x15 x1
+0x30F0 : add x3  x0  x15
+0x40F0 : add x4  x0  x15
+0x1073 : li  x1  7
+0xFF10 : add x15 x15 x1
+0x1013 : li  x1  1
+0xFF10 : add x15 x15 x1
+0xD0F0 : add x13 x0  x15
+0x1103 : li  x1  16
+0xFF10 : add x15 x15 x1
+0x9D00 : add x9  x13 x0
+0x1013 : li  x1  1
+0x120E : sb  x1  x2
+0x1013 : li  x1  1
+0x3310 : add x3  x3  x1
+0x346D : beq x3  x4  54
+0x5406 : lb  x5  x4
+0x1013 : li  x1  1
+0x4410 : add x4  x4  x1
+0x1303 : li  x1  48
+0x1510 : add x1  x5  x1
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x10A3 : li  x1  10
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x6003 : li  x6  0
+0x7083 : li  x7  8
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x8806 : lb  x8  x8
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x1003 : li  x1  0
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x1013 : li  x1  1
+0x180E : sb  x1  x8
+0x630E : sb  x6  x3
+0x1013 : li  x1  1
+0x3310 : add x3  x3  x1
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x8806 : lb  x8  x8
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x1003 : li  x1  0
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x1013 : li  x1  1
+0x180E : sb  x1  x8
+0x630E : sb  x6  x3
+0x1013 : li  x1  1
+0x3310 : add x3  x3  x1
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x00CD : beq x0  x0  -26
+0x008D : beq x0  x0  -58
+0x346D : beq x3  x4  54
+0x5406 : lb  x5  x4
+0x1013 : li  x1  1
+0x4410 : add x4  x4  x1
+0x1303 : li  x1  48
+0x1510 : add x1  x5  x1
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x10A3 : li  x1  10
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x6003 : li  x6  0
+0x7083 : li  x7  8
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x8806 : lb  x8  x8
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x1003 : li  x1  0
+0x8109 : beq x8  x1  4
+0x001D : beq x0  x0  14
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x00CD : beq x0  x0  -26
+0x008D : beq x0  x0  -58
+0x346D : beq x3  x4  54
+0x5406 : lb  x5  x4
+0x1013 : li  x1  1
+0x4410 : add x4  x4  x1
+0x1303 : li  x1  48
+0x1510 : add x1  x5  x1
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x10A3 : li  x1  10
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x6003 : li  x6  0
+0x7083 : li  x7  8
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x8806 : lb  x8  x8
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x1003 : li  x1  0
+0x8109 : beq x8  x1  4
+0x001D : beq x0  x0  14
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x8806 : lb  x8  x8
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x1003 : li  x1  0
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x1013 : li  x1  1
+0x180E : sb  x1  x8
+0x630E : sb  x6  x3
+0x1013 : li  x1  1
+0x3310 : add x3  x3  x1
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x00CD : beq x0  x0  -26
+0x008D : beq x0  x0  -58
+0x346D : beq x3  x4  54
+0x5406 : lb  x5  x4
+0x1013 : li  x1  1
+0x4410 : add x4  x4  x1
+0x1303 : li  x1  48
+0x1510 : add x1  x5  x1
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x10A3 : li  x1  10
+0x190E : sb  x1  x9
+0x1013 : li  x1  1
+0x9910 : add x9  x9  x1
+0x6003 : li  x6  0
+0x7083 : li  x7  8
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x8260 : add x8  x2  x6
+0x8806 : lb  x8  x8
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x1003 : li  x1  0
+0x8109 : beq x8  x1  4
+0x001D : beq x0  x0  14
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x80C0 : add x8  x0  x12
+0x8850 : add x8  x8  x5
+0x8806 : lb  x8  x8
+0x1013 : li  x1  1
+0x116C : sll x1  x1  x6
+0x8814 : and x8  x8  x1
+0x8109 : beq x8  x1  4
+0x0041 : beq x0  x0  32
+0x1013 : li  x1  1
+0x6610 : add x6  x6  x1
+0x0099 : beq x0  x0  -52
+0x676D : beq x6  x7  54
+0x00CD : beq x0  x0  -26
+0x008D : beq x0  x0  -58
+0x346D : beq x3  x4  54
+0x0041 : beq x0  x0  32
+0x1003 : li  x1  0
+0x190E : sb  x1  x9

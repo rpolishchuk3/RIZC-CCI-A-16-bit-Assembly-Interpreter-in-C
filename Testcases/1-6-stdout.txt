@@ -1,0 +1,94 @@
+0x1013 : li  x1  1
+0xDC00 : add x13 x12 x0
+0xDD10 : add x13 x13 x1
+0x2293 : li  x2  41
+0x3323 : li  x3  50
+0x2234 : and x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2643 : li  x2  100
+0x3083 : li  x3  8
+0x2238 : or  x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x20D3 : li  x2  13
+0xB033 : li  x11 3
+0x3073 : li  x3  7
+0x22BC : sll x2  x2  x11
+0x2230 : add x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x23B3 : li  x2  59
+0x2220 : add x2  x2  x2
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2603 : li  x2  96
+0x3053 : li  x3  5
+0x2238 : or  x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x23F3 : li  x2  63
+0x3203 : li  x3  32
+0x2234 : and x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2393 : li  x2  57
+0x221C : sll x2  x2  x1
+0x2210 : add x2  x2  x1
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2603 : li  x2  96
+0x3013 : li  x3  1
+0x2238 : or  x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x4093 : li  x4  9
+0x2623 : li  x2  98
+0x2238 : or  x2  x2  x3
+0x2240 : add x2  x2  x4
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2643 : li  x2  100
+0x3013 : li  x3  1
+0x2238 : or  x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2393 : li  x2  57
+0x221C : sll x2  x2  x1
+0x2210 : add x2  x2  x1
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2703 : li  x2  112
+0x2D0A : sd  x2  x13
+0x3D06 : lb  x3  x13
+0x3D0E : sb  x3  x13
+0xDD10 : add x13 x13 x1
+0x2653 : li  x2  101
+0x2D0A : sd  x2  x13
+0x3D02 : ld  x3  x13
+0x3D0E : sb  x3  x13
+0xDD10 : add x13 x13 x1
+0x26E3 : li  x2  110
+0x0009 : beq x0  x0  4
+0x2210 : add x2  x2  x1
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2703 : li  x2  112
+0x2D0A : sd  x2  x13
+0x3D06 : lb  x3  x13
+0x3D0E : sb  x3  x13
+0xDD10 : add x13 x13 x1
+0x26C3 : li  x2  108
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2653 : li  x2  101
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2203 : li  x2  32
+0x3013 : li  x3  1
+0x2238 : or  x2  x2  x3
+0x2D0E : sb  x2  x13
+0xDD10 : add x13 x13 x1
+0x2003 : li  x2  0
+0x2D0E : sb  x2  x13
+0xDC00 : add x13 x12 x0

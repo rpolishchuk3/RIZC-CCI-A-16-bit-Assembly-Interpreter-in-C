@@ -1,0 +1,137 @@
+li   x1 1
+
+// 'I'
+add  op ip x0
+add  op op x1
+
+// ' '
+li  x2, 41
+li  x3, 50
+and x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// 'l'
+li  x2, 100
+li  x3, 8
+or  x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// 'o'
+li  x2, 13
+li  x11, 3
+li  x3,  7
+sll x2, x2, x11
+add x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// 'v'
+li  x2, 59
+add x2, x2, x2
+sb  x2, op
+add op, op, x1
+
+// 'e'
+li  x2, 96
+li  x3, 5
+or  x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// ' '
+li  x2, 63
+li  x3, 32
+and x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// 's'
+li  x2, 57
+sll x2, x2, x1
+add x2, x2, x1
+sb  x2, op
+add op, op, x1
+
+// 'a'
+li  x2, 96
+li  x3, 1
+or  x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// 'l'
+li  x4,  9
+li  x2, 98
+or  x2, x2, x3
+add x2, x2, x4
+sb  x2, op
+add op, op, x1
+
+// 'e'
+li  x2, 100
+li  x3, 1
+or  x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// 's'
+li  x2, 57
+sll x2, x2, x1
+add x2, x2, x1
+sb  x2, op
+add op, op, x1
+
+// 'p'
+li  x2, 112
+sd  x2, op
+lb  x3, op
+sb  x3, op
+add op, op, x1
+
+// 'e'
+li  x2, 101
+sd  x2, op
+ld  x3, op
+sb  x3, op
+add op, op, x1
+
+// 'o'
+li  x2, 110
+beq x0, x0, label
+add x2, x2, x1
+label:
+add x2, x2, x1
+sb  x2, op
+add op, op, x1
+
+// 'p'
+li  x2, 112
+sd  x2, op
+lb  x3, op
+sb  x3, op
+add op, op, x1
+
+// l'
+li  x2, 108
+sb  x2, op
+add op, op, x1
+
+// 'e'
+li  x2, 101
+sb  x2, op
+add op, op, x1
+
+// !'
+li  x2, 32
+li  x3, 1
+or  x2, x2, x3
+sb  x2, op
+add op, op, x1
+
+// '\0'
+li  x2, 0
+sb  x2, op
+
+add  op ip x0

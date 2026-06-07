@@ -1,0 +1,18 @@
+// Replace these three lines to test any instruction, they should store an ASCII value to register x1 (i.e., 65 = 'A')
+li  x1, 69
+sb  x1, sp
+li  x1, 0
+lb  x1, sp
+sb  x0, sp
+// UP TO HERE
+
+// This will store the ASCII value stored in x1 in a string and make the output register `op` point to it
+li  x2, 1
+add op, sp, x0
+sb  x1, op
+add op, op, x2
+li  x3, 10
+sb  x3, op
+add op, op, x2
+sb  x0, op
+add op, sp, x0

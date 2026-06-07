@@ -1,0 +1,1177 @@
+0x1C02 : ld  x1  x12
+0x3083 : li  x3  8
+0xCC30 : add x12 x12 x3
+0x2C02 : ld  x2  x12
+0x1120 : add x1  x1  x2
+0xD0F0 : add x13 x0  x15
+0x2003 : li  x2  0
+0x1009 : beq x1  x0  4
+0x0029 : beq x0  x0  20
+0x1075 : beq x1  x0  58
+0x3010 : add x3  x0  x1
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7D20 : add x7  x13 x2
+0x8303 : li  x8  48
+0x8830 : add x8  x8  x3
+0x870E : sb  x8  x7
+0x4010 : add x4  x0  x1
+0x1003 : li  x1  0
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7013 : li  x7  1
+0x2270 : add x2  x2  x7
+0x00D1 : beq x0  x0  -24
+0x0085 : beq x0  x0  -62
+0x009D : beq x0  x0  -50
+0x1075 : beq x1  x0  58
+0x3010 : add x3  x0  x1
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x7033 : li  x7  3
+0x3741 : beq x3  x7  32
+0x7043 : li  x7  4
+0x3739 : beq x3  x7  28
+0x7053 : li  x7  5
+0x3731 : beq x3  x7  24
+0x7063 : li  x7  6
+0x3729 : beq x3  x7  20
+0x7073 : li  x7  7
+0x3721 : beq x3  x7  16
+0x7083 : li  x7  8
+0x3719 : beq x3  x7  12
+0x7093 : li  x7  9
+0x3711 : beq x3  x7  8
+0x7F63 : li  x7  -10
+0x3370 : add x3  x3  x7
+0x00AD : beq x0  x0  -42
+0x3059 : beq x3  x0  44
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7D20 : add x7  x13 x2
+0x8303 : li  x8  48
+0x8830 : add x8  x8  x3
+0x870E : sb  x8  x7
+0x4010 : add x4  x0  x1
+0x1003 : li  x1  0
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7033 : li  x7  3
+0x4761 : beq x4  x7  48
+0x7043 : li  x7  4
+0x4759 : beq x4  x7  44
+0x7053 : li  x7  5
+0x4751 : beq x4  x7  40
+0x7063 : li  x7  6
+0x4749 : beq x4  x7  36
+0x7073 : li  x7  7
+0x4741 : beq x4  x7  32
+0x7083 : li  x7  8
+0x4739 : beq x4  x7  28
+0x7093 : li  x7  9
+0x4731 : beq x4  x7  24
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7F63 : li  x7  -10
+0x4470 : add x4  x4  x7
+0x7013 : li  x7  1
+0x1170 : add x1  x1  x7
+0x008D : beq x0  x0  -58
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x2270 : add x2  x2  x7
+0x00D1 : beq x0  x0  -24
+0x0085 : beq x0  x0  -62
+0x009D : beq x0  x0  -50
+0x1075 : beq x1  x0  58
+0x3010 : add x3  x0  x1
+0x3059 : beq x3  x0  44
+0x7013 : li  x7  1
+0x3751 : beq x3  x7  40
+0x7023 : li  x7  2
+0x3749 : beq x3  x7  36
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x0009 : beq x0  x0  4
+0x7D20 : add x7  x13 x2
+0x8303 : li  x8  48
+0x8830 : add x8  x8  x3
+0x870E : sb  x8  x7
+0x4010 : add x4  x0  x1
+0x1003 : li  x1  0
+0x4079 : beq x4  x0  60
+0x7013 : li  x7  1
+0x4771 : beq x4  x7  56
+0x7023 : li  x7  2
+0x4769 : beq x4  x7  52
+0x7013 : li  x7  1
+0x2270 : add x2  x2  x7
+0x00D1 : beq x0  x0  -24
+0x0085 : beq x0  x0  -62
+0x009D : beq x0  x0  -50
+0x1075 : beq x1  x0  58
+0x007D : beq x0  x0  62
+0x0025 : beq x0  x0  18
+0x7D20 : add x7  x13 x2
+0x070E : sb  x0  x7
+0x5003 : li  x5  0
+0x7FF3 : li  x7  -1
+0x6270 : add x6  x2  x7
+0x563D : beq x5  x6  30
+0x7013 : li  x7  1
+0x7670 : add x7  x6  x7
+0x5731 : beq x5  x7  24
+0x7D50 : add x7  x13 x5
+0x4706 : lb  x4  x7
+0x8D60 : add x8  x13 x6
+0x9806 : lb  x9  x8
+0x970E : sb  x9  x7
+0x480E : sb  x4  x8
+0x7013 : li  x7  1
+0x5570 : add x5  x5  x7
+0x7FF3 : li  x7  -1
+0x6670 : add x6  x6  x7
+0x00C9 : beq x0  x0  -28
+0x563D : beq x5  x6  30

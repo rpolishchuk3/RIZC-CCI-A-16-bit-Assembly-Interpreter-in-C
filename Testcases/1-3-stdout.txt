@@ -1,0 +1,24 @@
+0x2183 : li  x2  24
+0x6103 : li  x6  16
+0x1F00 : add x1  x15 x0
+0xFF20 : add x15 x15 x2
+0xD010 : add x13 x0  x1
+0x3D00 : add x3  x13 x0
+0x5013 : li  x5  1
+0x7C00 : add x7  x12 x0
+0x2706 : lb  x2  x7
+0x230E : sb  x2  x3
+0x3350 : add x3  x3  x5
+0x7750 : add x7  x7  x5
+0x2706 : lb  x2  x7
+0x230E : sb  x2  x3
+0x3350 : add x3  x3  x5
+0x7750 : add x7  x7  x5
+0x2706 : lb  x2  x7
+0x230E : sb  x2  x3
+0x3350 : add x3  x3  x5
+0x20A3 : li  x2  10
+0x230E : sb  x2  x3
+0x3350 : add x3  x3  x5
+0x2003 : li  x2  0
+0x230E : sb  x2  x3

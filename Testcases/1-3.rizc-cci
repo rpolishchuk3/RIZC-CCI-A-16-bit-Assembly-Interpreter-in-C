@@ -1,0 +1,25 @@
+li x2, 24
+li x6, 16 
+add x1, sp, x0 // set x1 to hold original value of SP
+add sp, sp, x2 // allocate 24 bytes for the SP
+add op, x0, x1 // then set OP to point to the original addr of SP
+add x3, op, x0 // then set x3 to point to the base of where we're gonna store the output
+li x5, 1  // load 1 into x5 which I'll use as my incrementer
+add x7, ip, x0 // set x7 to point to the base of the input string
+lb x2, x7 // load the first character: '2'
+sb x2, x3 // store it at the first position of the output string
+add x3,x3, x5 // increment the output pointer by one
+add x7,x7, x5 // increment the input pointer by one
+lb x2, x7 // load the value of the second input character '0'
+sb x2, x3 // store it into the output
+add x3,x3, x5 // increment the output pointer by one
+add x7,x7, x5 // increment the input pointer by one
+lb x2, x7 // load the value of the third input character '1'
+sb x2, x3 // store it into the output
+add x3, x3, x5 // increment the output pointer by one
+li x2, 10 // load the value of `\n` into x2
+sb x2, x3  // then save the newline into the output string
+add x3, x3, x5 // increment the pointer to the output string
+li x2, 0 // then add the null terminator to the end of the output string
+sb x2, x3
+
