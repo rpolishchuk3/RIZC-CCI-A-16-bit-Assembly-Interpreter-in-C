@@ -1,214 +1,254 @@
-# RIZC-CCI - A 16-bit Assembly Interpreter in C
+# RIZC-CCI - Custom ISA Emulator & Assembler
 
-A software emulator for a custom 16-bit Instruction Set Architecture (ISA), written in C. RIZC-CCI decodes and executes binary machine code, simulating a minimal CPU with 16 registers, a 1 KB memory stack, a program counter, and four instruction types - all implemented from scratch using bitwise operations and a fetch-decode-execute loop.
+A fully working CPU emulator for a custom 16-bit instruction set architecture, written in C. RIZC-CCI simulates a minimal processor - register file, byte-addressable memory, program counter, and a complete fetch-decode-execute pipeline - paired with a Python assembler that compiles human-readable assembly into binary machine code the emulator runs.
+
+---
+
+## Motivation
+
+I wanted to understand what actually happens when a CPU executes a program. Not at the operating system level, not at the compiler level - but at the point where binary instruction bits enter a processor and registers change as a result. Building an emulator forces that understanding: you have to define every instruction encoding, implement every operation, and get the sequencing exactly right or nothing works.
+
+RIZC-CCI gave me a complete picture of how software meets hardware. Writing programs in assembly for my own ISA, then watching the emulator execute them instruction by instruction, made the fetch-decode-execute cycle tangible in a way that reading about it never could.
 
 ---
 
 ## Overview
 
-This project implements a complete fetch-decode-execute pipeline for a custom ISA called **RIZC-CCI**, designed around fixed-width 16-bit instructions. The interpreter reads a binary program (encoded as hexadecimal), loads input data into a simulated memory stack, executes each instruction, and writes the program's output to a file.
+The project has two components that work together:
 
-The goal was to understand, at the lowest level, how a CPU actually works - how binary instructions are encoded, how registers interact with memory, and how branch instructions break sequential flow to enable loops and conditionals.
+**The emulator** (`rizc-cci.c`) loads a hex-encoded binary program and an input data file, executes the program on a simulated CPU, and writes the output. It implements a 16-register file, 1 KB of byte-addressable memory, and a program counter driving a full execution loop.
 
----
-
-## Features
-
-- **Full ISA implementation** - 10 instructions across 4 instruction types (R, B, I, L)
-- **Fetch-decode-execute loop** driven by a simulated program counter (`pc`)
-- **16 × 64-bit registers**, including special-purpose `ip`, `op`, `sp`, and `pc` registers
-- **1 KB byte-addressable memory stack** with `uint8_t` granularity
-- **Bitwise instruction decoding** - all fields extracted via bit masking and shifting
-- **8-bit sign extension** for signed immediate values in L-type and B-type instructions
-- **Branch instruction** with encoded 7-bit signed PC-relative offset (ghost-bit encoding)
-- **Debug trace mode** - compile-time `DEBUG` flag enables per-instruction stdout logging showing hex encoding and human-readable disassembly
-- **Zero-register protection** - writes to `x0` are silently discarded, matching real ISA conventions
-- **Memory-safe execution** - no leaks; all heap-allocated program memory is freed after execution
+**The assembler** (`assembler.py`) compiles `.rizc-cci` assembly source files into the hex instruction format the emulator expects. It handles label resolution, PC-relative branch offsets, and syntax validation.
 
 ---
 
-## ISA Reference
+## How It Works
 
-RIZC-CCI uses **16-bit fixed-width instructions**. The two least-significant bits always encode the opcode (instruction type). The remaining bits carry operands, function codes, or immediates depending on type.
+```
+┌─────────────┐     ┌──────────────┐     ┌──────────────────────┐
+│  .rizc-cci  │────▶│  assembler   │────▶│  hex instruction file │
+│  (assembly) │     │  (Python)    │     │  (0xNNNN per line)   │
+└─────────────┘     └──────────────┘     └──────────┬───────────┘
+                                                     │
+                    ┌────────────────────────────────▼────────────┐
+                    │              Emulator (C)                    │
+                    │                                              │
+                    │  1. Load program into instruction array      │
+                    │  2. Load input bytes into memory stack       │
+                    │  3. LOOP:                                    │
+                    │     a. Fetch instruction at PC               │
+                    │     b. Halt if 0xFFFF sentinel               │
+                    │     c. Increment PC                          │
+                    │     d. Decode opcode → dispatch handler      │
+                    │     e. Execute → update registers / memory   │
+                    │  4. Write null-terminated string at op       │
+                    └──────────────────────────────────────────────┘
+```
 
-### Registers
+---
 
-| Name | Number | Purpose |
-|------|--------|---------|
-| `x0` | 0 | Hardwired zero - reads return 0, writes are ignored |
+## ISA Design
+
+All instructions are **16 bits wide**. The two least-significant bits encode the instruction type (opcode). The remaining bits carry operands, function codes, or immediates.
+
+### Register File
+
+| Register | Number | Role |
+|----------|--------|------|
+| `x0` | 0 | Hardwired zero - reads always return 0, writes are discarded |
 | `x1`–`x11` | 1–11 | General purpose |
-| `ip` | 12 | Input pointer - initialized to base of input data in stack |
-| `op` | 13 | Output pointer - set by program; interpreter reads output from here |
-| `pc` | 14 | Program counter - index of the next instruction to execute |
+| `ip` | 12 | Input pointer - initialized to start of input data in memory |
+| `op` | 13 | Output pointer - emulator reads output string from here after halt |
+| `pc` | 14 | Program counter - index of the next instruction to fetch |
 | `sp` | 15 | Stack pointer - initialized to last byte of input data |
 
-### Instruction Types
+All registers are 64-bit (`uint64_t`).
 
-**R-type** (opcode `0b00`) - Register-to-register arithmetic/logic
+### Instruction Encoding
 
-| Bits 15–12 | Bits 11–8 | Bits 7–4 | Bits 3–2 | Bits 1–0 |
-|-----------|----------|---------|---------|---------|
-| r1 (dst) | r2 (src1) | r3 (src2) | func2 | op |
+**R-type** - register arithmetic and logic (opcode `00`)
 
-| Instruction | func2 | Operation |
-|-------------|-------|-----------|
+```
+15      12 | 11      8 | 7       4 | 3    2 | 1    0
+  r1 (dst) |  r2 (src) |  r3 (src) |  func  |  op
+```
+
+| Mnemonic | func | Operation |
+|----------|------|-----------|
 | `add` | `00` | `r1 = r2 + r3` |
 | `and` | `01` | `r1 = r2 & r3` |
-| `or` | `10` | `r1 = r2 \| r3` |
+| `or`  | `10` | `r1 = r2 \| r3` |
 | `sll` | `11` | `r1 = r2 << r3` |
 
-**B-type** (opcode `0b01`) - Conditional branch
+**B-type** - conditional branch (opcode `01`)
 
-| Bits 15–12 | Bits 11–8 | Bits 7–2 | Bits 1–0 |
-|-----------|----------|---------|---------|
-| r1 | r2 | imm[6:1] | op |
+```
+15      12 | 11      8 | 7              2 | 1    0
+    r1     |     r2    |    imm[6:1]      |  op
+```
 
-`beq r1, r2, offset` - if `r1 == r2`, jump: `pc += offset / 2`. The 7-bit signed offset is encoded without its LSB (the "ghost bit"), which is always `0` since all instructions are 2-byte aligned.
+`beq r1, r2, label` - if `r1 == r2`, jump to `label`. The 7-bit signed offset is PC-relative. Bit 0 is always 0 (all instructions are 2-byte aligned, so the assembler stores only bits [6:1]).
 
-**I-type** (opcode `0b10`) - Memory load/store
+**I-type** - memory load / store (opcode `10`)
 
-| Bits 15–12 | Bits 11–8 | Bits 7–4 | Bits 3–2 | Bits 1–0 |
-|-----------|----------|---------|---------|---------|
-| r1 | r2 | `0000` | func2 | op |
+```
+15      12 | 11      8 | 7       4 | 3    2 | 1    0
+  r1       |    r2     |   0000    |  func  |  op
+```
 
-| Instruction | func2 | Operation |
-|-------------|-------|-----------|
-| `ld` | `00` | `r1 = M[r2]` (8 bytes, little-endian) |
-| `lb` | `01` | `r1 = zero_extend(M[r2])` (1 byte) |
-| `sd` | `10` | `M[r2] = r1` (8 bytes, little-endian) |
-| `sb` | `11` | `M[r2] = r1 & 0xFF` (1 byte) |
+| Mnemonic | func | Operation |
+|----------|------|-----------|
+| `ld` | `00` | `r1 = M[r2]` - load 8 bytes, little-endian |
+| `lb` | `01` | `r1 = M[r2]` - load 1 byte, zero-extended |
+| `sd` | `10` | `M[r2] = r1` - store 8 bytes, little-endian |
+| `sb` | `11` | `M[r2] = r1 & 0xFF` - store low byte only |
 
-**L-type** (opcode `0b11`) - Load immediate
+**L-type** - load immediate (opcode `11`)
 
-| Bits 15–12 | Bits 11–4 | Bits 3–2 | Bits 1–0 |
-|-----------|----------|---------|---------|
-| r1 (dst) | imm[7:0] | `00` | op |
+```
+15      12 | 11             4 | 3    2 | 1    0
+  r1 (dst) |    imm[7:0]      |   00   |  op
+```
 
-`li r1, imm` - loads an 8-bit sign-extended immediate into `r1`. Range: `[-128, 127]`.
+`li r1, imm` - sign-extends an 8-bit immediate to 64 bits and loads it into `r1`. Range: [−128, 127].
 
 ---
 
-## Implementation Details
+## Key Implementation Details
 
-### Instruction Decoding
+### Unified bit extractor
 
-All fields are extracted using a generic `extract_bits(instruction, start, end)` helper that isolates any bit range via masking and shifting. This keeps each decode path clean - a single call per field rather than hand-rolled masks scattered across the codebase.
-
-### Branch Offset Reconstruction
-
-B-type instructions encode bits `[6:1]` of the offset (the ghost bit `[0]` is implicit zero). The interpreter reconstructs the full 7-bit value by shifting the stored field left by 1, then sign-extends it to a 16-bit signed integer for PC-relative arithmetic:
+Rather than hand-rolling masks for every field in every instruction type, a single helper isolates any bit range:
 
 ```c
-uint8_t literal_7bit = literal_6_1 << 1;
-int16_t offset = (literal_7bit & 0x40) ? (literal_7bit | 0xFF80) : literal_7bit;
+uint16_t extract_bits(uint16_t instruction, int start, int end) {
+    int length = end - start + 1;
+    return (instruction >> start) & ((1 << length) - 1);
+}
+```
+
+Every decode path calls this - one line per field, no scattered magic numbers.
+
+### Branch offset: the ghost bit
+
+B-type instructions can only jump to instruction-aligned addresses, so the offset's LSB is always 0. The assembler drops it. The emulator reconstructs it with a left shift, then sign-extends to get a signed 16-bit jump distance:
+
+```c
+uint8_t literal_7bit = literal_6_1 << 1;          // restore the implicit 0 bit
+int16_t offset = (literal_7bit & 0x40)
+    ? (literal_7bit | 0xFF80)                       // negative: sign-extend
+    : literal_7bit;                                 // positive: use as-is
 registers[REG_PC] = registers[REG_PC] - 1 + (offset / 2);
 ```
 
-The `-1` corrects for the PC having already been incremented before the branch is evaluated.
+The `- 1` corrects for PC already having advanced past the branch before it executes.
 
-### Memory Layout
+### Memory model
 
-Input bytes are loaded directly into the base of the `uint8_t stack[1024]` array at startup. `ip` is set to `0` (base), and `sp` is set to the index of the last input byte. The RIZC-CCI program then manipulates the stack freely - using it for both data storage and string construction. After execution, the interpreter reads the null-terminated string from the address in `op` and writes it to the output file.
+The 1 KB `uint8_t stack[1024]` serves as all program memory. Input data is loaded at address 0 on startup. `ip` points to byte 0, `sp` points to the last input byte. Programs build their output anywhere in that space and leave `op` pointing to the result string. After the halt sentinel, the emulator walks from `op` until it hits a null byte, writing each character to the output file.
 
-### Debug Mode
+### 8-byte little-endian memory access
 
-Compiling with `-DDEBUG` enables per-instruction trace output to `stdout`:
+`ld` and `sd` read and write 8 bytes in little-endian order, assembling or disassembling a full `uint64_t` byte by byte:
 
-```
-0x4320 : add x4  x3  x2
-0x0009 : beq x0  x0  4
-0xFF10 : add x15 x15 x1
-```
-
-Because branches alter control flow, the trace reflects actual execution order - instructions that are jumped over do not appear.
-
----
-
-## Example
-
-**Input file** (`input.txt`) - bytes of "Hello World!\0" in hex:
-```
-0x48 0x65 0x6C 0x6C 0x6F 0x20 0x57 0x6F 0x72 0x6C 0x64 0x21 0x00
-```
-
-**Instruction file** (`instructions.txt`):
-```
-0xDC00   // add op, ip, x0  - set output pointer to input base
-0xFFFF   // halt sentinel
-```
-
-**Output file** (`output.txt`):
-```
-Hello World!
-```
-
-**Debug trace** (when compiled with `-DDEBUG`):
-```
-0xDC00 : add x13 x12 x0
+```c
+uint64_t load_doubleword(uint64_t address) {
+    uint64_t value = 0;
+    for (int i = 0; i < 8; i++)
+        value |= ((uint64_t)stack[address + i]) << (i * 8);
+    return value;
+}
 ```
 
 ---
 
-## Building & Running
+## Debug Trace Mode
 
-### Prerequisites
-
-- GCC (or any C99-compatible compiler)
-- Python 3 (optional - for the included assembler)
-
-### Compile
+Compile with `-DDEBUG` to enable per-instruction stdout logging. Each executed instruction prints its hex encoding and a human-readable disassembly, in actual execution order (instructions inside un-taken branches are silently skipped):
 
 ```bash
-# Standard build
-gcc -o rizc-cci src/ex12q1.c
-
-# Debug build (enables per-instruction trace to stdout)
-gcc -DDEBUG -o rizc-cci-debug src/ex12q1.c
+gcc -DDEBUG -o rizc-cci-debug rizc-cci.c
+./rizc-cci-debug input.txt instructions.txt output.txt
 ```
 
-Or use the included `Makefile`:
+Example trace:
 
-```bash
-make         # builds both rizc-cci and rizc-cci_debug
+```
+0x1FF3 : li  x1  69
+0xFD02 : sb  x1  sp
+0x1003 : li  x1  0
+0xF802 : lb  x1  sp
+0x0002 : sb  x0  sp
+0x2FF3 : li  x2  1
+0xDC00 : add op  sp  x0
+...
 ```
 
-### Run
+---
+
+## Example: Writing a Character to Output
+
+This is the full `test.rizc-cci` - loads ASCII `'E'` (69) into memory, reads it back, then builds a one-character output string:
+
+```asm
+// Load a value and round-trip it through memory
+li  x1, 69          // x1 = 69 = ASCII 'E'
+sb  x1, sp          // store byte at stack pointer
+li  x1, 0           // clear x1
+lb  x1, sp          // reload the byte from memory → x1 = 69
+sb  x0, sp          // write zero back (cleanup)
+
+// Build the output string starting at sp
+li  x2, 1
+add op, sp, x0      // op → base of output region
+sb  x1, op          // write 'E'
+add op, op, x2      // advance op
+li  x3, 10
+sb  x3, op          // write '\n'
+add op, op, x2      // advance op
+sb  x0, op          // write '\0' (null terminator)
+add op, sp, x0      // reset op to base so emulator reads from there
+```
+
+Assemble and run:
 
 ```bash
-./rizc-cci <input_file> <instructions_file> <output_file>
+python3 assembler.py test.rizc-cci -o instructions.txt
+./rizc-cci input.txt instructions.txt output.txt
+cat output.txt      # → E
+```
+
+---
+
+## Build & Run
+
+**Requirements:** GCC (C99), Python 3
+
+```bash
+# Build standard and debug binaries
+make
+
+# Or manually
+gcc -std=c99 -o rizc-cci rizc-cci.c
+gcc -std=c99 -DDEBUG -o rizc-cci-debug rizc-cci.c
+```
+
+```bash
+# Assemble a program
+python3 assembler.py program.rizc-cci -o instructions.txt
+
+# Run the emulator
+./rizc-cci input.txt instructions.txt output.txt
+
+# Run with instruction trace
+./rizc-cci-debug input.txt instructions.txt output.txt
 ```
 
 | Argument | Description |
 |----------|-------------|
-| `input_file` | Hex bytes loaded into the stack as program input (one `0xNN` per line) |
-| `instructions_file` | Hex-encoded RIZC-CCI program (one `0xNNNN` per line, terminated by `0xFFFF`) |
-| `output_file` | Path where the interpreter writes the program's output string |
-
-### Using the Assembler
-
-The included `assembler.py` compiles human-readable RIZC-CCI assembly into the hex instruction format the interpreter expects:
-
-```bash
-python3 assembler.py program.rizc-cci -o instructions.txt
-./rizc-cci input.txt instructions.txt output.txt
-```
-
-**Example program** (`program.rizc-cci`):
-```asm
-// Compute 60 + 5 = 65 ('A') and print it
-li  x1, 60
-li  x2, 5
-add x1, x1, x2       // x1 = 65 = ASCII 'A'
-li  x2, 1
-add op, sp, x0        // op = base of stack
-sb  x1, op            // stack[op] = 'A'
-add op, op, x2
-li  x3, 10
-sb  x3, op            // stack[op] = '\n'
-add op, op, x2
-sb  x0, op            // stack[op] = '\0'
-add op, sp, x0        // restore op to base
-```
+| `input.txt` | Hex bytes preloaded into memory (`0xNN` per entry) |
+| `instructions.txt` | Assembled hex program (`0xNNNN` per line, ends with `0xFFFF`) |
+| `output.txt` | File the emulator writes the output string to |
 
 ---
 
@@ -216,27 +256,41 @@ add op, sp, x0        // restore op to base
 
 ```
 .
-├── src/
-│   └── ex12q1.c          # Interpreter - decoder, executor, I/O
-├── assets/
-│   ├── R-type.png        # Instruction encoding diagrams
-│   ├── B-type.png
-│   ├── I-type.png
-│   └── L-type.png
-├── Testcases/            # Input/instruction/expected-output triples
-├── assembler.py          # RIZC-CCI assembler (assembly → hex)
-├── test.rizc-cci         # Sample assembly program
+├── rizc-cci.c          # Emulator - fetch/decode/execute loop, register file, memory
+├── assembler.py        # Assembler - lexer, label resolver, instruction encoder
+├── test.rizc-cci       # Example assembly program
+├── Testcases/          # 30 input/instruction/expected-output triples
+├── assets/             # Instruction encoding diagrams (R/B/I/L-type)
 ├── Makefile
 └── README.md
 ```
 
 ---
 
+## Limitations
+
+- **Fixed 1 KB memory** - no heap, no memory protection, no address translation
+- **No pipeline simulation** - instructions execute sequentially with no hazard detection or stall modelling
+- **Immediate range capped at 8 bits** - L-type load immediate is limited to [−128, 127], larger constants require multiple instructions
+- **Branch range capped at ±32 instructions** - the 7-bit signed offset limits how far a `beq` can jump
+- **No interrupt or exception model** - illegal instructions and out-of-bounds accesses fail silently
+
+---
+
 ## Future Improvements
 
-- **Expanded ISA** - add subtract, compare, jump-and-link, and shift-right instructions to approach a more realistic RISC-style register file
-- **Heap simulation** - extend memory beyond the fixed 1 KB stack to support dynamic allocation
-- **ELF-style binary format** - replace the plain hex instruction file with a structured binary format (magic bytes, header, instruction section)
-- **Disassembler** - standalone tool to reverse hex instruction files back into human-readable RIZC-CCI assembly
-- **Step debugger** - interactive mode to step through instructions one at a time, inspect register state, and dump memory
-- **Overflow and trap handling** - detect and report misaligned access, out-of-bounds PC, and arithmetic overflow rather than silently continuing
+- **Expanded instruction set** - subtract, compare-and-set, jump-and-link (for function calls), and arithmetic shift right
+- **Pipeline model** - simulate fetch, decode, execute, and writeback as separate stages with hazard detection
+- **Memory hierarchy** - add a cache layer between the register file and the flat memory array to model cache hit/miss behavior
+- **ELF-style binary format** - replace plain hex files with a structured binary format (magic bytes, header, separate code and data sections)
+- **Disassembler** - reverse the assembler: read a hex instruction file and produce human-readable assembly
+- **Interactive debugger** - step through instructions one at a time, inspect register state, dump memory regions
+
+---
+
+## Key Takeaways
+
+- **Instruction encoding is a design problem.** Every bit in a 16-bit instruction is a resource - deciding how to split them between opcode, register fields, and immediates involves real tradeoffs between instruction count, operand range, and decoder complexity.
+- **The fetch-decode-execute loop is the CPU.** Everything else - registers, memory, the program counter - is infrastructure that the loop drives. Once that mental model clicks, how real processors work becomes much clearer.
+- **Stateful systems require disciplined debugging.** When an emulator produces wrong output, the bug could be in the decoder, the executor, the memory model, or the assembler. The debug trace mode was essential - being able to see exactly which instructions executed in which order made every bug locatable.
+- **The assembler and emulator must agree on every encoding detail.** The ghost-bit convention in branch offsets, the endianness of doubleword loads, the behavior of writes to `x0` - every one of these has to be consistent across both tools or programs silently produce wrong results.
