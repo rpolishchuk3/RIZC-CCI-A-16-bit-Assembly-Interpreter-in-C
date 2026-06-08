@@ -22,7 +22,7 @@ This project serves as a capstone-style implementation that consolidates core co
 
 - **Data Processing & Backend Systems** - many large-scale systems rely on efficient data handling and transformation. The techniques used in this project mirror patterns found in backend services, data pipelines, and analytics engines.
 
-- **Reliability & Debugging Skills** - working close to the hardware forces precise control over memory and logic, which develops strong debugging and problem-solving skills—critical for production-level engineering.
+- **Reliability & Debugging Skills** - working close to the hardware forces precise control over memory and logic, which develops strong debugging and problem-solving skills critical for production-level engineering.
 
 - **Foundation for Advanced Fields** - concepts reinforced here are directly applicable to:
   - Machine learning infrastructure (efficient data handling)
