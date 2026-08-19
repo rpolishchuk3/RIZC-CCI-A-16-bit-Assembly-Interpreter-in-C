@@ -33,6 +33,7 @@ int program_size;    // number of instructions in the loaded program
 uint16_t extract_bits(uint16_t instruction, int start, int end);
 int64_t sign_extend_8(uint8_t value);
 uint64_t load_doubleword(uint64_t address);
+int is_valid_address(uint64_t address, int width);
 
 void store_doubleword(uint64_t address, uint64_t value);
 
@@ -106,7 +107,7 @@ int main(int argc, char *argv[]) {
     fclose(instruction_file);    // release instruction file resources
     
     registers[REG_PC] = 0;    // set program counter to first instruction
-    while (registers[REG_PC] < program_size) {    // continue while instructions remain
+    while (registers[REG_PC] < (uint64_t)program_size) {    // continue while instructions remain
         uint16_t instruction = program[registers[REG_PC]];    // load next instruction to execute
         if (instruction == 0xFFFF) {    // detect program termination marker
 
@@ -136,6 +137,10 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+int is_valid_address(uint64_t address, int width) {
+    if (address >= STACK_SIZE) return 0;
+    return (STACK_SIZE - address) >= (uint64_t)width;
+}
 
 uint16_t extract_bits(uint16_t instruction, int start, int end) {
     int length = end - start + 1;    // compute bit field width
@@ -246,6 +251,12 @@ void execute_i_type(uint16_t instruction) {
     uint16_t destination = extract_bits(instruction, 12, 15);    // get data register
     
     uint64_t address = registers[source1];    // retrieve memory address value
+
+    int width = (func2 == FUNC_LD || func2 == FUNC_SD) ? 8 : 1;
+    if (!is_valid_address(address, width)) {
+        fprintf(stderr, "Memory access out of bounds: address 0x%llx\n", (unsigned long long)address);
+        exit(1);
+    }
     
     switch (func2) {    // select memory operation
         case FUNC_LD:
