@@ -1,1 +1,11 @@
-echo ".DS_Store" >> .gitignore
+# macOS
+.DS_Store
+
+# Compiled binaries
+rizc-cci
+rizc-cci-debug
+*.o
+
+# Generated test output (not part of the source)
+my-output.txt
+instructions.txt
