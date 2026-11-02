@@ -51,11 +51,11 @@ The project has two components that work together:
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌──────────────────────┐
-│  .rizc-cci  │────▶│  assembler   │────▶│  hex instruction file │
+│  .rizc-cci  │────▶│  assembler   │────▶│  hex instruction file│
 │  (assembly) │     │  (Python)    │     │  (0xNNNN per line)   │
 └─────────────┘     └──────────────┘     └──────────┬───────────┘
                                                      │
-                    ┌────────────────────────────────▼────────────┐
+                    ┌────────────────────────────────▼─────────────┐
                     │              Emulator (C)                    │
                     │                                              │
                     │  1. Load program into instruction array      │
