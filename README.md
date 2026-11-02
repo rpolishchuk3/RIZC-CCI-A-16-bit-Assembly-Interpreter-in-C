@@ -41,7 +41,7 @@ It reflects not just isolated knowledge, but the integration of core computer sc
 
 The project has two components that work together:
 
-**The emulator** (`rizc-cci.c`) loads a hex-encoded binary program and an input data file, executes the program on a simulated CPU, and writes the output. It implements a 16-register file, 1 KB of byte-addressable memory, and a program counter driving a full execution loop.
+**The emulator** (`src/rizc-cci.c`) loads a hex-encoded binary program and an input data file, executes the program on a simulated CPU, and writes the output. It implements a 16-register file, 1 KB of byte-addressable memory, and a program counter driving a full execution loop.
 
 **The assembler** (`assembler.py`) compiles `.rizc-cci` assembly source files into the hex instruction format the emulator expects. It handles label resolution, PC-relative branch offsets, and syntax validation.
 
@@ -192,22 +192,24 @@ uint64_t load_doubleword(uint64_t address) {
 Compile with `-DDEBUG` to enable per-instruction stdout logging. Each executed instruction prints its hex encoding and a human-readable disassembly, in actual execution order (instructions inside un-taken branches are silently skipped):
 
 ```bash
-gcc -DDEBUG -o rizc-cci-debug rizc-cci.c
-./rizc-cci-debug input.txt instructions.txt output.txt
+make rizc-cci-debug
+./rizc-cci-debug Testcases/1-2-input.txt Testcases/1-2-instructions.txt output.txt
 ```
 
 Example trace:
 
 ```
-0x1FF3 : li  x1  69
-0xFD02 : sb  x1  sp
+0x1453 : li  x1  69
+0x1F0E : sb  x1  x15
 0x1003 : li  x1  0
-0xF802 : lb  x1  sp
-0x0002 : sb  x0  sp
-0x2FF3 : li  x2  1
-0xDC00 : add op  sp  x0
+0x1F06 : lb  x1  x15
+0x0F0E : sb  x0  x15
+0x2013 : li  x2  1
+0xDF00 : add x13 x15 x0
 ...
 ```
+
+Registers are printed by number (`x12` = `ip`, `x13` = `op`, `x14` = `pc`, `x15` = `sp`).
 
 ---
 
@@ -235,39 +237,55 @@ sb  x0, op          // write '\0' (null terminator)
 add op, sp, x0      // reset op to base so emulator reads from there
 ```
 
+The program writes at `sp`, which points at the last input byte, so it needs at least one byte of input. `test-input.txt` holds a single `0x00` for that. With an empty input file `sp` starts at `0xFFFF…FFFF` and the first `sb` fails with "Memory access out of bounds".
+
 Assemble and run:
 
 ```bash
-python3 assembler.py test.rizc-cci -o instructions.txt
-./rizc-cci input.txt instructions.txt output.txt
-cat output.txt      # → E
+make example
 ```
+
+which runs:
+
+```bash
+python3 assembler.py test.rizc-cci -o instructions.txt
+./rizc-cci test-input.txt instructions.txt output.txt
+cat output.txt
+```
+
+Expected output: `E`
 
 ---
 
 ## Build & Run
 
-**Requirements:** GCC (C99), Python 3
+**Requirements:** a C99 compiler (clang on macOS, or GCC), Python 3, make
+
+Run everything from the repository root.
+
+| Command | What it does |
+|---------|--------------|
+| `make` | Builds `rizc-cci` and `rizc-cci-debug` from `src/rizc-cci.c` |
+| `make test` | Assembles and runs every case in `Testcases/`, checks it against the expected files |
+| `make example` | Assembles and runs `test.rizc-cci` |
+| `make clean` | Removes the binaries and generated files |
+
+Building by hand:
 
 ```bash
-# Build standard and debug binaries
-make
-
-# Or manually
-gcc -std=c99 -o rizc-cci rizc-cci.c
-gcc -std=c99 -DDEBUG -o rizc-cci-debug rizc-cci.c
+cc -std=c99 -Wall -o rizc-cci src/rizc-cci.c
+cc -std=c99 -Wall -DDEBUG -o rizc-cci-debug src/rizc-cci.c
 ```
+
+Assembling and running your own program:
 
 ```bash
-# Assemble a program
-python3 assembler.py program.rizc-cci -o instructions.txt
-
-# Run the emulator
-./rizc-cci input.txt instructions.txt output.txt
-
-# Run with instruction trace
-./rizc-cci-debug input.txt instructions.txt output.txt
+python3 assembler.py my-program.rizc-cci -o instructions.txt
+./rizc-cci my-input.txt instructions.txt output.txt
+./rizc-cci-debug my-input.txt instructions.txt output.txt
 ```
+
+`my-program.rizc-cci` and `my-input.txt` are placeholders for your own files. Paste these lines one at a time: zsh treats `#` as a command unless `setopt interactivecomments` is on, so pasting a block with comments fails.
 
 | Argument | Description |
 |----------|-------------|
@@ -281,11 +299,12 @@ python3 assembler.py program.rizc-cci -o instructions.txt
 
 ```
 .
-├── rizc-cci.c          # Emulator - fetch/decode/execute loop, register file, memory
+├── src/
+│   └── rizc-cci.c      # Emulator - fetch/decode/execute loop, register file, memory
 ├── assembler.py        # Assembler - lexer, label resolver, instruction encoder
 ├── test.rizc-cci       # Example assembly program
-├── Testcases/          # 30 input/instruction/expected-output triples
-├── assets/             # Instruction encoding diagrams (R/B/I/L-type)
+├── test-input.txt      # One-byte input for the example
+├── Testcases/          # 6 cases (1-1 … 1-6): .rizc-cci source, input, instructions, expected output and trace
 ├── Makefile
 └── README.md
 ```

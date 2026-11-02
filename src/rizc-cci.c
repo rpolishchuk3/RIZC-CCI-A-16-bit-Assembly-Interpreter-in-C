@@ -10,20 +10,21 @@
 #define REG_PC 14
 #define REG_SP 15
 
-#define OPCODE_R 0b00
-#define OPCODE_B 0b01
-#define OPCODE_I 0b10
-#define OPCODE_L 0b11
+// opcode and func values are 2-bit fields; hex used because 0b literals are not C99
+#define OPCODE_R 0x0
+#define OPCODE_B 0x1
+#define OPCODE_I 0x2
+#define OPCODE_L 0x3
 
-#define FUNC_ADD 0b00
-#define FUNC_AND 0b01
-#define FUNC_OR  0b10
-#define FUNC_SLL 0b11
+#define FUNC_ADD 0x0
+#define FUNC_AND 0x1
+#define FUNC_OR  0x2
+#define FUNC_SLL 0x3
 
-#define FUNC_LD 0b00
-#define FUNC_LB 0b01
-#define FUNC_SD 0b10
-#define FUNC_SB 0b11
+#define FUNC_LD 0x0
+#define FUNC_LB 0x1
+#define FUNC_SD 0x2
+#define FUNC_SB 0x3
 
 uint64_t registers[NUM_REGISTERS];    // stores values for all 16 CPU registers
 uint8_t stack[STACK_SIZE];    // 1024-byte memory space for program data
@@ -47,7 +48,7 @@ void execute_instruction(uint16_t instruction);
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {    // verify exactly 3 arguments plus program name provided
-
+        fprintf(stderr, "Usage: %s <input.txt> <instructions.txt> <output.txt>\n", argv[0]);    // tell user the expected arguments
         return 1;
     }
     
@@ -57,13 +58,18 @@ int main(int argc, char *argv[]) {
     
     FILE *input_file = fopen(argv[1], "r");    // attempt to open input data file
     if (!input_file) {    // verify file was opened successfully
-
+        perror(argv[1]);    // print which input file failed and why
         return 1;
     }
     
     int input_size = 0;    // counter for bytes loaded from input
     uint8_t byte;    // holds single byte during reading
     while (fscanf(input_file, " 0x%hhx", &byte) == 1) {    // read hexadecimal bytes one at a time
+        if (input_size >= STACK_SIZE) {    // stop before writing past the 1 KB memory array
+            fprintf(stderr, "%s: input larger than %d bytes\n", argv[1], STACK_SIZE);
+            fclose(input_file);
+            return 1;
+        }
         stack[input_size] = byte;    // place byte into stack memory
         input_size++;    // advance to next stack position
     }
@@ -78,7 +84,7 @@ int main(int argc, char *argv[]) {
     
     FILE *instruction_file = fopen(argv[2], "r");    // attempt to open program file
     if (!instruction_file) {    // verify file was opened successfully
-
+        perror(argv[2]);    // print which instruction file failed and why
         return 1;
     }
     
@@ -91,7 +97,7 @@ int main(int argc, char *argv[]) {
     program = (uint16_t*)malloc(program_size * sizeof(uint16_t));    // reserve memory for all instructions
     if (!program) {    // verify memory was allocated successfully
         fclose(instruction_file);    // release file before exit
-
+        fprintf(stderr, "Out of memory loading program\n");    // report failed allocation
         return 1;
     }
     
@@ -100,7 +106,7 @@ int main(int argc, char *argv[]) {
         if (fscanf(instruction_file, " 0x%hx", &program[i]) != 1) {    // load each instruction into array
             free(program);    // release instruction memory
             fclose(instruction_file);    // release file before exit
-
+            fprintf(stderr, "%s: malformed instruction #%d\n", argv[2], i + 1);    // report which line failed to parse
             return 1;
         }
     }
@@ -120,7 +126,7 @@ int main(int argc, char *argv[]) {
     FILE *output_file = fopen(argv[3], "w");    // attempt to create output file
     if (!output_file) {    // verify file was opened successfully
         free(program);    // release instruction memory
-
+        perror(argv[3]);    // print why the output file could not be created
         return 1;
     }
     

@@ -9,3 +9,6 @@ rizc-cci-debug
 # Generated test output (not part of the source)
 my-output.txt
 instructions.txt
+# Build / run artifacts
+build/
+output.txt
